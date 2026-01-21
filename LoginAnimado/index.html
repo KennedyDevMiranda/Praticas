@@ -1,50 +1,99 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Animado</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login / Cadastro Animado</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <main class="page">
-        <section class="card" aria-label="Tela de login">
-            <header class="header">
-                <h1>Bem-Vindo de volta</h1>
-                <p>Entre para continuar sua jornada 🚀</p>
-            </header>
+  <main class="page">
+    <section class="shell" aria-label="Autenticação">
+      <!-- Painel “mágico” que muda de lado -->
+      <div class="panel">
+        <div class="panel-content" id="panelLogin">
+          <h2>Já tem conta?</h2>
+          <p>Entre e continue sua saga 🚀</p>
+          <button class="ghost" type="button" id="goLogin">Ir para Login</button>
+        </div>
 
-            <form id="loginForm" novalidate>
-                <div class="field">
-                    <input id="email" name="email" type="email" autocomplete="username" required />
-                    <label for="email">E-mail</label>
-                    <small class="error" id="emailError"></small>
-                </div>
+        <div class="panel-content" id="panelRegister">
+          <h2>Novo por aqui?</h2>
+          <p>Crie sua conta e vamos nessa 🌟</p>
+          <button class="ghost" type="button" id="goRegister">Ir para Cadastro</button>
+        </div>
+      </div>
 
-                <div class="field">
-                    <input id="password" name="password" type="password" autocomplete="current-password" required />
-                    <label for="password">Senha</label>
+      <!-- Card com os formulários -->
+      <div class="card" id="card">
+        <header class="top">
+          <h1>Área de Acesso</h1>
+          <p id="subtitle">Entre com seus dados</p>
+        </header>
 
-                    <button class="toggle" type="button" id="togglePassword" aria-label="Mostrar ou ocultar senha">
-                        👁️
-                    </button>
+        <div class="forms">
+          <!-- LOGIN -->
+          <form id="loginForm" class="form form-login" novalidate>
+            <div class="field">
+              <input id="loginEmail" type="email" autocomplete="username" required placeholder=" " />
+              <label for="loginEmail">E-mail</label>
+              <small class="error" id="loginEmailError"></small>
+            </div>
 
-                    <small class="error" id="passwordError"></small>
-                </div>
+            <div class="field">
+              <input id="loginPassword" type="password" autocomplete="current-password" required placeholder=" " />
+              <label for="loginPassword">Senha</label>
+              <button class="toggle" type="button" data-toggle="loginPassword" aria-label="Mostrar/ocultar senha">👁️</button>
+              <small class="error" id="loginPasswordError"></small>
+            </div>
 
-                <button class="btn" type="submit" id="submitBtn">
-                    Entrar
-                </button>
+            <button class="btn" type="submit" id="loginBtn">Entrar</button>
+            <div class="toast" id="loginToast" role="status" aria-live="polite"></div>
+          </form>
 
-                <p class="hint">
-                    Dica:use <b>teste@exemplo.com</b> e uma senha com pelo menos <b>6</b> caracteres.
-                </p>
+          <!-- CADASTRO -->
+          <form id="registerForm" class="form form-register" novalidate>
+            <div class="field">
+              <input id="regName" type="text" autocomplete="name" required placeholder=" " />
+              <label for="regName">Nome</label>
+              <small class="error" id="regNameError"></small>
+            </div>
 
-                <div class="toast" id="toast" role="status" aria-label="polite"></div>
-            </form>
-        </section>
-    </main>
+            <div class="field">
+              <input id="regEmail" type="email" autocomplete="email" required placeholder=" " />
+              <label for="regEmail">E-mail</label>
+              <small class="error" id="regEmailError"></small>
+            </div>
 
-    <script src="script.js"></script>
+            <div class="field">
+              <input id="regPassword" type="password" autocomplete="new-password" required placeholder=" " />
+              <label for="regPassword">Senha</label>
+              <button class="toggle" type="button" data-toggle="regPassword" aria-label="Mostrar/ocultar senha">👁️</button>
+              <small class="error" id="regPasswordError"></small>
+            </div>
+
+            <div class="field">
+              <input id="regConfirm" type="password" autocomplete="new-password" required placeholder=" " />
+              <label for="regConfirm">Confirmar senha</label>
+              <button class="toggle" type="button" data-toggle="regConfirm" aria-label="Mostrar/ocultar senha">👁️</button>
+              <small class="error" id="regConfirmError"></small>
+            </div>
+
+            <button class="btn" type="submit" id="registerBtn">Criar conta</button>
+            <div class="toast" id="registerToast" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+
+        <!-- Links rápidos no rodapé -->
+        <footer class="bottom">
+          <button class="link" type="button" id="switchMode">
+            Não tem conta? <b>Cadastrar</b>
+          </button>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
