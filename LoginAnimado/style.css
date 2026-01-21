@@ -52,7 +52,8 @@ body{
   backdrop-filter: blur(14px);
   padding: 22px;
   position:relative;
-  overflow:hidden;
+  overflow-x:hidden;
+  overflow-y: visible;
   animation: enter 650ms cubic-bezier(.2,.9,.2,1) both;
 }
 
